@@ -1,7 +1,9 @@
 # RFNoC-HLS-WINLAB
 
 Bhargav Gokalgandhi bvg8@scarletmail.rutgers.edu
+
 Prasanthi Maddala prasanti@winlab.rutgers.edu
+
 Ivan Seskar seskar@winlab.rutgers.edu
 
 ## Introduction
