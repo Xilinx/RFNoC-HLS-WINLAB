@@ -1,3 +1,15 @@
 
 The spreader HLs project is used to generate the HDL for spreading task, which is wrapped into a CE to plug into the RFNoC framework.
-To conform with the requirements of an RFNoC block, axi stream input and output interfaces are used. Input parameter pn_seq_len is connected to a settings register. The spreader takes in data symbols in SC16 format(signed complex numbers with 16 bit real and imaginary parts) and spreads them using a real PN sequence giving L SC16 output symbols for each input, where L is the sequence length. The PN sequence is locally by a [PN sequence generator](../pn_seq_gen_lfsr/README.md)
+To conform with the requirements of an RFNoC block, axi stream input and output interfaces are used. Input parameter pn_seq_len is connected to a settings register. The spreader takes in data symbols in SC16 format(signed complex numbers with 16 bit real and imaginary parts) and spreads them using a real PN sequence giving L SC16 output symbols for each input, where L is the sequence length. The PN sequence is locally by a [PN sequence generator.](../pn_seq_gen_lfsr/README.md)
+
+Incoming packet is stored in a local FIFO. The variable data_fifo was declared as hls::stream type and resource set to FIFO as shown.
+
+ _static hls::stream<ap_uint<32> > data_fifo;_
+ 
+ _#pragma HLS STREAM variable=data_fifo depth=256 dim=1_
+ 
+ _#pragma HLS RESOURCE variable=data_fifo core=FIFO_
+
+The spreader module uses a state machine to wait for incoming data, loading the PN sequence generator and spreading the incoming data. Once all the samples in an incoming packet are processed, a new packet is read into the data_fifo. Since the data_fifo depth is set to 256, the maximum size of an incoming packet is 256.
+
+
