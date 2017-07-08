@@ -21,7 +21,7 @@ The system has been tested using USRP X310s on ORBIT testbed. All the X310s in t
 ## RFNoC Blocks implemented
 
 1) [Spreader](hls-projects/spreader/README.md)
-2) Correlator
+2) [Correlator](hls-projects/correlator/README.md)
 3) Averaging Block
 
 ## Steps to build Channel sounder
@@ -48,3 +48,6 @@ The system has been tested using USRP X310s on ORBIT testbed. All the X310s in t
    
    To use 2 Rx channels in X310 - In uhd/fpga-src/usrp3/tools/scripts/ run
    ./uhd_image_builder.py ddc ddc correlator correlator cir_avg cir_avg -m 7 --fill-with-fifos -d x310 -t X310_RFNOC_HG
+
+## Run the Channel sounder
+Host side application files for the transmit and receive hosts can be found at host/examples. These files and how to run them will be explained in detail in the demo video which will be posted soon.
