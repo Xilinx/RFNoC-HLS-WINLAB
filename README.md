@@ -7,7 +7,7 @@ Prasanthi Maddala prasanti@winlab.rutgers.edu
 Ivan Seskar seskar@winlab.rutgers.edu
 
 ## Introduction
-This project aims at building a real-time wide band channel sounder using USRPs, which computes the power delay profile of a multi-path channel, and focuses mainly on large scale antenna systems as shown below.
+This project aims at building a real-time wide band channel sounder using USRPs, which computes the power delay profile of a multi-path channel, and focuses mainly on large scale antenna systems as shown below. This channel sounder is used for computation of  the power delay profile of a multipath channel in a massive multiple antenna system in the ORCA framework (https://www.orca-project.eu/).
 
 ![channel_sounding_demo](https://user-images.githubusercontent.com/9439021/27981986-ee9480fa-6364-11e7-8bd5-c1f9374eb964.jpg)
 
