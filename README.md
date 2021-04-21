@@ -35,22 +35,20 @@ The system has been tested using USRP X310s on ORBIT testbed. All the X310s in t
    git clone -b v3.14 https://github.com/Xilinx/RFNoC-HLS-WINLAB.git
 
 ### Simulate the modules 
+ - cd rfnoc-channelsound
+ - mkdir build && cd build
+ - cmake -DUHD_FPGA_DIR=/root/uhd/fpga-src ../
+ - cd ../rfnoc/testbenches/noc_block_corrmag63avg8k_tb
+ - make vsim (This should start the modelsim simulation. To use custom waveform script, stop the current simulation and copy /root/RFNoC-HLS_WINLAB/rfnoc-channelsound/rfnoc/testbenches/noc_block_corrmag63avg8k_tb/noc_block_corrmag63avg8k_tb_simulate.do to root/RFNoC-HLS_WINLAB/rfnoc-channelsound/rfnoc/testbenches/noc_block_corrmag63avg8k_tb/modelsim_proj/modelsim_proj.sim/sim_1/behav/modelsim)
+ - Rerun the simulation - do noc_block_corrmag63avg8k_tb_simulate.do 
+ - run 100 us
+ - For spreader module cd ../rfnoc/testbenches/noc_block_spreader_tb
+ - make vsim
 
-cd rfnoc-channelsound
-mkdir build && cd build
-cmake -DUHD_FPGA_DIR=/root/uhd/fpga-src ../
-cd ../rfnoc/testbenches/noc_block_corrmag63avg8k_tb
-make vsim (This should start the modelsim simulation. To use custom waveform script, stop the current simulation and copy /root/RFNoC-HLS_WINLAB/rfnoc-channelsound/rfnoc/testbenches/noc_block_corrmag63avg8k_tb/noc_block_corrmag63avg8k_tb_simulate.do to root/RFNoC-HLS_WINLAB/rfnoc-channelsound/rfnoc/testbenches/noc_block_corrmag63avg8k_tb/modelsim_proj/modelsim_proj.sim/sim_1/behav/modelsim)
-Rerun the simulation - do noc_block_corrmag63avg8k_tb_simulate.do 
-run 100 us
+### Build bitstream
+  Use the commands in uhd/fpga-src/usrp3/tools/scripts/channelsounder_build_x310.yml
 
-cd ../rfnoc/testbenches/noc_block_spreader_tb
-make vsim
 
-Build bitstream
-Use the commands in uhd/fpga-src/usrp3/tools/scripts/channelsounder_build_x310.yml
-
-Test on USRP
 
 
 
