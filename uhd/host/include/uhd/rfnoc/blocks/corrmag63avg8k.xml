@@ -1,0 +1,56 @@
+<!--This defines one NoC-Block.-->
+<nocblock>
+  <name>Corrmag63avg8k</name>
+  <blockname>Corrmag63avg8k</blockname>
+  <!--There can be several of these:-->
+  <ids>
+    <id revision="0">FFFFC50000000000</id>
+  </ids>
+  <!-- Registers -->
+  <registers>
+    <!--Note: AXI config bus uses 129 & 130-->
+    <setreg>
+      <name>SR_MODE</name>
+      <address>128</address>
+    </setreg>
+    <setreg>
+      <name>SR_PNSEQ_PARAMS</name>
+      <address>129</address>
+    </setreg>
+    <setreg>
+      <name>SR_THRESHOLD</name>
+      <address>130</address>
+    </setreg>
+    <setreg>
+      <name>SR_AVG_PARAMS</name>
+      <address>131</address>
+    </setreg>
+    <readback>
+      <name>RB_MODE</name>
+      <address>0</address>
+    </readback>
+    <readback>
+      <name>RB_PNSEQ_PARAMS</name>
+      <address>1</address>
+    </readback>
+    <readback>
+      <name>RB_THRESHOLD</name>
+      <address>2</address>
+    </readback>
+    <readback>
+      <name>RB_AVG_PARAMS</name>
+      <address>3</address>
+    </readback>
+  </registers>
+  <!--All the connections to the outside world are listed in 'ports':-->
+  <ports>
+    <sink>
+      <name>in</name>
+      <type>sc16</type>
+    </sink>
+    <source>
+      <name>out</name>
+      <type>item32</type> 
+    </source>
+  </ports>
+</nocblock>
