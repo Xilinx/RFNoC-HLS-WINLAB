@@ -1,0 +1,2 @@
+$(addprefix SOURCES_PATH, \
+) \
