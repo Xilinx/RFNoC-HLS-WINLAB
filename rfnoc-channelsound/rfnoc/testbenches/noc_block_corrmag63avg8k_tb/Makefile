@@ -45,9 +45,9 @@ SIM_SRCS = \
 $(abspath noc_block_corrmag63avg8k_tb.sv) \
 $(abspath ../../fpga-src/Corrmag63avg8k/noc_block_corrmag63avg8k.v) \
 $(abspath ../../fpga-src/Corrmag63avg8k/corrmag63avg8k_top.v) \
-$(abspath ../../fpga-src/Correlator/gen_lfsr.v) \
+$(abspath ../../fpga-src/Corrmag63avg8k/gen_lfsr.v) \
 $(abspath ../../fpga-src/Corrmag63avg8k/pnseq_correlator63.v) \
-$(abspath ../../fpga-src/Correlator/pkt_avg_v2.v)
+$(abspath ../../fpga-src/Corrmag63avg8k/pkt_avg_v2.v)
 
 MODELSIM_USER_DO =
 
