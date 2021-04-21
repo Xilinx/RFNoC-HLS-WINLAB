@@ -24,3 +24,7 @@ The system has been tested using USRP X310s on ORBIT testbed. All the X310s in t
 2) [Correlator](hls-projects/correlator/README.md)
 3) Averaging Block
 
+
+##Building instructions
+
+
