@@ -1,0 +1,19 @@
+# To regenerate corrmag63avg8k_x310.v:
+#   ./uhd_image_builder.py  -d x310 -t X310_RFNOC_HG -m 4 --fill-with-fifos -y corrmag63avg8k_x310.yml -o corrmag63avg8k_x310.v -I /root/RFNoC-HLS-WINLAB/rfnoc-channelsound/rfnoc/
+# To Build bitstream
+#   ./uhd_image_builder.py  -d x310 -t X310_RFNOC_HG -m 4 --fill-with-fifos -y corrmag63avg8k_x310.yml -I /root/RFNoC-HLS-WINLAB/rfnoc-channelsound/rfnoc/
+
+- block: ddc
+  parameters:
+    NOC_ID: 64'hDDC0_0000_0000_0000
+    NUM_CHAINS: 2
+
+- block: duc
+  parameters:
+
+- block: corrmag63avg8k
+  parameters:
+
+- block: spreader
+  parameters:
+
