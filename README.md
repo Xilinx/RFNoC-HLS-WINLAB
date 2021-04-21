@@ -30,9 +30,9 @@ The system has been tested using USRP X310s on ORBIT testbed. All the X310s in t
 ### Setup Environment 
  - Xilinx Vivado 2018.3
  - Modelsim 10.6c
- - UHD UHD 3.14.1.HEAD-0-g0347a6d8
+ - UHD 3.14.1.HEAD-0-g0347a6d8
  - Clone this repository 
-   git clone -b v3.14 
+   git clone -b v3.14 https://github.com/Xilinx/RFNoC-HLS-WINLAB.git
 
 ### Simulate the modules 
 
@@ -40,13 +40,8 @@ cd rfnoc-channelsound
 mkdir build && cd build
 cmake -DUHD_FPGA_DIR=/root/uhd/fpga-src ../
 cd ../rfnoc/testbenches/noc_block_corrmag63avg8k_tb
-make vsim 
-[This should start the modelsim simulation. To use custom waveform script, break the current simulation and copy .do script 
-pwd
-# /root/RFNoC-HLS-WINLAB/rfnoc-channelsound/rfnoc/testbenches/noc_block_corrmag63avg8k_tb/modelsim_proj/modelsim_proj.sim/sim_1/behav/modelsim
-cp ../../../../../noc_block_corrmag63avg8k_tb_simulate.do .]
-Rerun the simulation 
-do noc_block_corrmag63avg8k_tb_simulate.do .
+make vsim (This should start the modelsim simulation. To use custom waveform script, stop the current simulation and copy /root/RFNoC-HLS_WINLAB/rfnoc-channelsound/rfnoc/testbenches/noc_block_corrmag63avg8k_tb/noc_block_corrmag63avg8k_tb_simulate.do to root/RFNoC-HLS_WINLAB/rfnoc-channelsound/rfnoc/testbenches/noc_block_corrmag63avg8k_tb/modelsim_proj/modelsim_proj.sim/sim_1/behav/modelsim)
+Rerun the simulation - do noc_block_corrmag63avg8k_tb_simulate.do 
 run 100 us
 
 cd ../rfnoc/testbenches/noc_block_spreader_tb
