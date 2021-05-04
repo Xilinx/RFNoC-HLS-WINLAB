@@ -7,6 +7,7 @@ Corrmag63avg8k/noc_block_corrmag63avg8k.v \
 Corrmag63avg8k/corrmag63avg8k_top.v \
 Corrmag63avg8k/pnseq_correlator63.v \
 Corrmag63avg8k/gen_lfsr.v \
+Corrmag63avg8k/pkt_avg_v2.v \
 Spreader/noc_block_spreader.v \
 Spreader/spreader.v \
 Spreader/FIFO_spreader_data_fifo_V_V.v \
