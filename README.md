@@ -28,7 +28,7 @@ The system has been tested using USRP X310s on ORBIT testbed. All the X310s in t
 ## Build and Test instructions
 
 ### Setup Environment 
- - Xilinx Vivado 2018.3
+ - Xilinx Vivado 2017.4
  - Modelsim 10.6c
  - UHD 3.14.1.HEAD-0-g0347a6d8
  - Clone this repository 
