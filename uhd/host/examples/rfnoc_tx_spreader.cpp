@@ -135,11 +135,11 @@ int UHD_SAFE_MAIN(int argc, char *argv[]){
 	//----------------------------------------------------------------------
     std::string duc_id("0/DUC_0");
     std::string spreader_id("0/Spreader_0");
-    std::string dmafifo_id("0/DmaFIFO_0");
+    //std::string dmafifo_id("0/DmaFIFO_0");
 
     uhd::rfnoc::spreader_block_ctrl::sptr spreader_ctrl = usrp->get_block_ctrl<uhd::rfnoc::spreader_block_ctrl>(spreader_id);
     uhd::rfnoc::sink_block_ctrl_base::sptr duc_ctrl = usrp->get_block_ctrl<uhd::rfnoc::sink_block_ctrl_base>(duc_id);
-    uhd::rfnoc::sink_block_ctrl_base::sptr dmafifo_ctrl = usrp->get_block_ctrl<uhd::rfnoc::sink_block_ctrl_base>(dmafifo_id);
+    //uhd::rfnoc::sink_block_ctrl_base::sptr dmafifo_ctrl = usrp->get_block_ctrl<uhd::rfnoc::sink_block_ctrl_base>(dmafifo_id);
     
     duc_ctrl->set_args(uhd::device_addr_t(duc_args));
     spreader_ctrl->set_pn_seq_gen(pn_poly,pn_seed,pn_len);
@@ -147,10 +147,14 @@ int UHD_SAFE_MAIN(int argc, char *argv[]){
     std::cout << "RFNOC Flowgraph :" << std::endl;
     std::cout << "Connecting " << duc_ctrl->get_block_id() <<" ==> " << radio_ctrl_id << std::endl;             
     tx_graph->connect(duc_ctrl->get_block_id(), uhd::rfnoc::ANY_PORT, radio_ctrl_id, radio_id);
-    std::cout << "Connecting " << dmafifo_ctrl->get_block_id() << " ==> " <<  duc_ctrl->get_block_id() << std::endl;
-    tx_graph->connect(dmafifo_ctrl->get_block_id(), 0, duc_ctrl->get_block_id(), uhd::rfnoc::ANY_PORT);
-    std::cout << "Connecting " << spreader_ctrl->get_block_id() << " ==> " <<  dmafifo_ctrl->get_block_id() << std::endl;
-    tx_graph->connect(spreader_ctrl->get_block_id(), uhd::rfnoc::ANY_PORT, dmafifo_ctrl->get_block_id(), 0);
+    //std::cout << "Connecting " << dmafifo_ctrl->get_block_id() << " ==> " <<  duc_ctrl->get_block_id() << std::endl;
+    //tx_graph->connect(dmafifo_ctrl->get_block_id(), 0, duc_ctrl->get_block_id(), uhd::rfnoc::ANY_PORT);
+    //std::cout << "Connecting " << spreader_ctrl->get_block_id() << " ==> " <<  dmafifo_ctrl->get_block_id() << std::endl;
+    //tx_graph->connect(spreader_ctrl->get_block_id(), uhd::rfnoc::ANY_PORT, dmafifo_ctrl->get_block_id(), 0);
+
+    std::cout << "Connecting " << spreader_ctrl->get_block_id() << " ==> " <<  duc_ctrl->get_block_id() << std::endl;
+    tx_graph->connect(spreader_ctrl->get_block_id(), uhd::rfnoc::ANY_PORT, duc_ctrl->get_block_id(), uhd::rfnoc::ANY_PORT);
+
     streamer_args["block_id"] = spreader_ctrl->get_block_id().to_string();
 	//----------------------------------------------------------------------
  
